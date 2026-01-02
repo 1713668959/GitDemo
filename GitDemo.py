@@ -23,6 +23,9 @@ def validate_email(email: str) -> bool:
     if not isinstance(email, str):
         return False
     email = email.strip()
+    if not email:
+        # empty or whitespace-only string is not a valid email
+        return False
     return bool(EMAIL_PATTERN.fullmatch(email))
 
 
